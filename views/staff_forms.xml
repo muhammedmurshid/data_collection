@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="model_staff_form_form_view" model="ir.ui.view">
+        <field name="name">staff.form</field>
+        <field name="model">logic.staff_forms</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+<!--                <header>-->
+<!--                    <field name="state" widget="statusbar"/>-->
+<!--                    <button name="action_schedule" string="Schedule" type="object" states="draft" class="oe_highlight"/>-->
+<!--                    <button name="action_start" string="Start" type="object" states="scheduled" class="oe_highlight"/>-->
+<!--                    <button name="action_complete" string="Complete" type="object" states="started"-->
+<!--                            class="oe_highlight"/>-->
+<!--                </header>-->
+                <sheet>
+<!--                    <widget name="web_ribbon" title="Completed" bg_color="bg-success"-->
+<!--                            attrs="{'invisible': [('state', '!=', 'completed')]}"/>-->
+                    <group>
+                        <group>
+                            <!--                            <field name="name"/>-->
+                            <field name="name" placeholder="name as per aadhar"/>
+                            <field name="address"/>
+                            <field name="branch_id"/>
+                            <field name="date_of_joining"/>
+                            <field name="dob"/>
+                            <field name="personal_mail_id"/>
+                            <field name="office_mail_id"/>
+                            <field name="phone_number"/>
+                            <field name="office_number"/>
+
+                            <!--                            <field name="photo" />-->
+                        </group>
+                        <group>
+                            <field name="aadhar_card"/>
+                            <field name="bank_passbook"/>
+                            <field name="sslc_certificate"/>
+                            <field name="passport_size_photo"/>
+
+                        </group>
+
+                    </group>
+
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="model_logic_staff_list_view" model="ir.ui.view">
+        <field name="name">logic.staff.forms</field>
+        <field name="model">logic.staff_forms</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!--                <field name="name"/>-->
+                <field name="name"/>
+<!--                <field name="coordinator_id"/>-->
+<!--                <field name="academic_head_id"/>-->
+<!--                <field name="day_one_average" widget="badge" string="Day1 Strength"/>-->
+<!--                <field name="day_two_average" widget="badge" string="Day2 Strength"/>-->
+<!--                <field name="state" widget="badge" decoration-success="state == 'completed'"-->
+<!--                       decoration-info="state == 'scheduled'" decoration-primary="state == 'started'"/>-->
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="model_staff_form_action">
+        <field name="name">Data Collection</field>
+        <field name="res_model">logic.staff_forms</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Data Collection"
+              id="model_staff_form_main_menu"
+              web_icon="data_collection/static/description/icon.png"
+              sequence="1"/>
+
+
+    <menuitem name="Staff Forms"
+              id="model_staff_form_menu"
+              action="model_staff_form_action"
+              parent="model_staff_form_main_menu"
+              sequence="2"/>
+
+</odoo>

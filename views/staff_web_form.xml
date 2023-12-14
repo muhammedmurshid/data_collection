@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="staff_form_web_view">
+        <title>Staffs form</title>
+        <t t-call="website.layout">
+<!--            <script type="text/javascript" src="refund_logic/static/src/js/submitt_button.js"/>-->
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <form action="/staff_form/submit" method="post" enctype="multipart/form-data"
+                              class="oe_import">
+                            <br></br>
+                            <strong><h3 align="center"><u>STAFFS FORM</u></h3></strong>
+                            <br></br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Name:
+                                                    </span>
+                                                    <span class="s_website_form_mark">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="employee_name" type="char"
+                                                           class="form-control s_website_form_input"
+                                                           name="employee_name" placeholder="Name as per aadhar card"
+                                                           required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Branch:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <select name="branch"
+                                                            t-attf-class="form-control s_website_form_input"
+                                                            required="1">
+                                                        <t t-foreach="branch or []" t-as="branch">
+                                                            <option t-att-value="branch.id">
+                                                                <t t-esc="branch.branch_name"/>
+                                                            </option>
+                                                        </t>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Address:
+                                                    </span>
+                                                    <span class="s_website_form_mark">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="address" type="text"
+                                                           class="form-control s_website_form_input"
+                                                           name="address" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Personal Number:
+                                                    </span>
+                                                    <span class="s_website_form_mark">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="phone_number" type="char"
+                                                           class="form-control s_website_form_input"
+                                                           name="phone_number" required="required" placeholder="Personal number"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Office Number:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="office_number" type="char"
+                                                           class="form-control s_website_form_input"
+                                                           name="office_number" placeholder="Office number"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="text" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Email ID:
+                                                    </span>
+                                                    <span class="s_website_form_mark">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="mail_id" type="email"
+                                                           class="form-control s_website_form_input"
+                                                           name="mail_id" required="required" placeholder="Personal mail ID"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="text" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Office Email ID:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="office_mail_id" type="email"
+                                                           class="form-control s_website_form_input"
+                                                           name="office_mail_id" placeholder="Office mail ID"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    <div class="row">-->
+<!--                                        <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+<!--                                             data-type="char" data-name="Field">-->
+<!--                                            <div class="row s_col_no_resize s_col_no_bgcolor">-->
+<!--                                                <label class="col-form-label col-sm-auto s_website_form_label"-->
+<!--                                                       style="width: 200px">-->
+<!--                                                    <span class="s_website_form_label_content">-->
+<!--                                                        Designation:-->
+<!--                                                    </span>-->
+<!--                                                    <span class="s_website_form_mark">-->
+<!--                                                        *-->
+<!--                                                    </span>-->
+<!--                                                </label>-->
+
+<!--                                                <div class="col-sm">-->
+<!--                                                    <input id="designation" type="char"-->
+<!--                                                           class="form-control s_website_form_input"-->
+<!--                                                           name="designation" required="required"/>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Date Of Joining:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="joining" type="date"
+                                                           class="form-control s_website_form_input"
+                                                           name="joining" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Date Of Birth:
+                                                    </span>
+                                                    <span class="s_website_form_mark">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="birth" type="date"
+                                                           class="form-control s_website_form_input"
+                                                           name="birth" required="required"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Photo:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="upload_phone" type="file" multiple="true"
+                                                           class="form-control s_website_form_input"
+                                                           name="upload_phone"
+                                                           accept="image/*,application/pdf,video/*"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Upload Aadhaar Card:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="upload_aadhar" type="file" multiple="true"
+                                                           class="form-control s_website_form_input"
+                                                           name="upload_aadhar"
+                                                           accept="image/*,application/pdf,video/*"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        SSLC Certificate:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="upload_sslc" type="file" multiple="true"
+                                                           class="form-control s_website_form_input"
+                                                           name="upload_sslc"
+                                                           accept="image/*,application/pdf,video/*"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                             data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label"
+                                                       style="width: 200px">
+                                                    <span class="s_website_form_label_content">
+                                                        Bank Passbook:
+                                                    </span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <!--                                                    <input id="upload_passbook" type="file"-->
+                                                    <!--                                                           class="form-control s_website_form_input"-->
+                                                    <!--                                                           name="upload_passbook"/>-->
+                                                    <input type="file" name="upload_passbook" multiple="true"
+                                                           class="form-control s_website_form_input"
+                                                           id="upload_passbook"
+                                                           accept="image/*,application/pdf,video/*"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dropdown-item-text o_add_to_dashboard" align="center">
+                                <button type="submit" value="Upload" id="emp_form" class="btn btn-primary">Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="logic_staff_form_success" name="Employee Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-6 mr-lg-auto oe_structure">
+                            <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                                     data-snippet="s_text_block" data-name="Text">
+                                <div class="container">
+                                    <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/>
+                                    <br/>
+                                    <h1 class="text-center">Thank You!</h1>
+                                    <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                        <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                    </div>
+                                    <h5 class="text-center">
+                                        <span class="fa fa-check-circle"/>
+                                        <span>Your Staffs form has been sent
+                                            <b>successfully</b>
+                                        </span>
+                                    </h5>
+<!--                                    <p class="text-center">We will get back to you shortly.</p>-->
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-4">
+                            <t t-call="website.company_description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_2"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>
