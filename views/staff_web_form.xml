@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="staff_form_web_view">
-        <title>Staffs form</title>
+        <title>Staff Data Collection Form</title>
         <t t-call="website.layout">
 <!--            <script type="text/javascript" src="refund_logic/static/src/js/submitt_button.js"/>-->
             <div id="wrap">
