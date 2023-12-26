@@ -10,7 +10,7 @@
                         <form action="/staff_form/submit" method="post" enctype="multipart/form-data"
                               class="oe_import">
                             <br></br>
-                            <strong><h3 align="center"><u>STAFFS FORM</u></h3></strong>
+                            <strong><h3 align="center"><u>Staff Data Collection Form</u></h3></strong>
                             <br></br>
                             <div class="row">
                                 <div class="col-md-6">
